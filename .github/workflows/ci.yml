@@ -43,3 +43,21 @@ jobs:
         file: ./coverage.xml
         fail_ci_if_error: false
 
+    - name: Generate model version
+      id: version
+      run: |
+        VERSION="v1.${GITHUB_RUN_NUMBER}"
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "Generated Version: $VERSION"
+
+    - name: Train model
+      run: |
+        python src/train_model.py --version $VERSION
+
+    - name: Save model artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: trained-model-${{ env.VERSION }}
+        path: models/model_${{ env.VERSION }}.pkl
+
+
