@@ -1,0 +1,35 @@
+{
+  "models": [
+    {
+      "name": "logreg",
+      "version": "1.0.0",
+      "path": "models/logreg/logreg_model.pkl",
+      "created_at": "",
+      "metrics": {
+        "accuracy": 0.0,
+        "f1_score": 0.0
+      }
+    },
+    {
+      "name": "random_forest",
+      "version": "1.0.0",
+      "path": "models/random_forest/rf_model.pkl",
+      "created_at": "",
+      "metrics": {
+        "accuracy": 0.0,
+        "f1_score": 0.0
+      }
+    },
+    {
+      "name": "hybrid",
+      "version": "1.0.0",
+      "path": "models/hybrid/hybrid_model.pkl",
+      "created_at": "",
+      "metrics": {
+        "accuracy": 0.0,
+        "f1_score": 0.0
+      }
+    }
+  ]
+}
+
