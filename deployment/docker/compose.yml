@@ -1,15 +1,25 @@
 version: '3.8'
 
 services:
-  fraud-detection-api:
+  jupyter:
     build:
       context: ../..
       dockerfile: deployment/docker/Dockerfile
+    container_name: fraud-detection-jupyter
     ports:
-      - "8000:8000"
-    environment:
-      - PYTHONUNBUFFERED=1
+      - "8888:8888"
     volumes:
+      # Mount notebooks directory for live editing
+      - ../../notebooks:/app/notebooks
+      # Mount Dataset directory
+      - ../../Dataset:/app/Dataset
+      # Mount data directory
+      - ../../data:/app/data
+      # Mount models directory
       - ../../models:/app/models
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
     restart: unless-stopped
+    stdin_open: true
+    tty: true
 
